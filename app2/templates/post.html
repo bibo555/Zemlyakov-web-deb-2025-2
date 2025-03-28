@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class = "container">
+    <h1 class = "my-4"> {{post.title}} </h1>
+    <div class = "row">
+        <div class = "col-md-8">
+            <img class = "img fluid" src="{{ url_for('static', filename='images/' + post.image_id) }}" alt = "{{ post.title }}">
+        </div>
+        <div class = "col-md-4">
+            <p class = "lead"> Автор: {{post.author }} </p>
+            <p> Опубликовано: {{post.date.strftime('%d.%m.Y')}}</p>
+        </div>
+    </div>
+    <div class=" row mt-4">
+        <div class=" col-md-12">
+            <p>{{post.text}}</p>
+        </div>
+    </div>
+    <div class = "row mt-4">
+        <div class =" col-md-12">
+            <h3>Комментарии</h3>
+            {% for comment in post.comments %}
+            <div class ="media mb-4">
+                <div class = "media-body">
+                    <h5 class="mt-0">{{comment.author}} </h5>
+                    <p>{{comment.text}}</p>
+                    {% if comment.replies %}
+                        {% for reply in comment.replies %}
+                            <div class= "media mt-3">
+                                <div class = "media-body">
+                                    <h5 class= "mt-0"> {{reply.author}} </h5>
+                                    <p> {{reply.text}} </p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+     
+    <div class = "row mt-4">
+        <div class = "col-md-12">
+            <h3>Оставьте комменатрий</h3>
+            <form>
+                <div class="form-group">
+                <textarea class = "form-control" rows="3" placeholder="Ваш комментарий "></textarea>
+                </div>
+                <button type ="submit" class = "btn btn-primary"> Отправить</button>
+            </form>
+        </div>
+    </div>
+</div> 
+{% endblock %}
