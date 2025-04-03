@@ -50,10 +50,6 @@ def post(index):
     p = posts_list[index]
     return render_template('post.html', title=p['title'], post=p)
 
-@app.route('/posts/<int:index>')
-def post(index):
-    p = posts_list[index]
-    return render_template('post.html', title=p['title'], post=p)
 
 @app.route('/about')
 def about():
