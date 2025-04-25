@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Cookies</h1>
+    
+    {% if action == 'set' %}
+    <div class="success">Куки "visits" была установлена</div>
+    {% else %}
+    <div class="info">Куки "visits" была удалена</div>
+    {% endif %}
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Куки</th>
+                <th>Значение</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, value in cookies.items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

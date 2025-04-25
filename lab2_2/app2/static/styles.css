@@ -1,0 +1,19 @@
+body {
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.avatar {
+    max-width: 100%;
+    height: auto;
+}
+
+footer {
+    margin-top: auto;
+}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="my-5">Disscusion for everyone</h1>
+        <div class="list-group">
+            <a href="/url_params?param1=value1&param2=value2" class="list-group-item list-group-item-action">
+                Параметры URL
+            </a>
+            <a href="/headers" class="list-group-item list-group-item-action">
+                Заголовки запроса
+            </a>
+            <a href="/cookies" class="list-group-item list-group-item-action">
+                Работа с Cookies
+            </a>
+            <a href="/form" class="list-group-item list-group-item-action">
+                Параметры формы
+            </a>
+            <a href="/phone" class="list-group-item list-group-item-action">
+                Проверка номера телефона
+            </a>
+            <a href="{{ url_for('counter') }}" class="list-group-item list-group-item-action">
+                Счетчик посещений
+            </a>
+        
+        
+
+        <p>
+            <a href="https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-media-objects.php" target="_blank">Пример</a> того, как можно сделать отображение комментариев.
+        </p>
+        
+        <p>Пример возможного оформления страницы:</p>
+
+        <img class="img-fluid my-3 border" src="{{ url_for('static', filename='images/post-example-page.png') }}" alt="Post page example">
+
+       
+
+    
+    </div>
+</div>
+{% endblock %}
